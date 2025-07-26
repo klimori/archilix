@@ -236,36 +236,6 @@ nav {
     color: var(--text-secondary);
 }
 
-.hero-content p {
-    font-size: 18px;
-    margin-bottom: 35px;
-    color: var(--text-secondary);
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-}
-
-.download-btn {
-    background: linear-gradient(45deg, var(--dark-blue), var(--accent-color));
-    color: var(--text-color);
-    font-weight: 600;
-    font-size: 18px;
-    padding: 14px 35px;
-    border-radius: 6px;
-    transition: all var(--transition-speed) ease;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 10px var(--glow-color);
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.8s ease-out 0.3s forwards;
-}
-
-.download-btn:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--accent-color);
-}
-
 /* ФУНКЦИИ */
 .features {
     padding: 90px 20px;
@@ -396,27 +366,70 @@ nav {
     box-shadow: inset 0 0 15px var(--accent-color);
 }
 
-/* СЕКЦИЯ COMING SOON */
-.coming-soon {
+/* СЕКЦИЯ INFO */
+.info {
     padding: 110px 20px;
     text-align: center;
+    background: linear-gradient(45deg, var(--dark-blue), var(--accent-color));
     opacity: 0;
     transform: translateY(50px);
     animation: slideInUp 0.8s ease-out 0.9s forwards;
-    background: rgba(15, 20, 25, 0.9);
+    position: relative;
+    overflow: hidden;
 }
 
-.coming-soon h2 {
+.info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.info h2 {
     font-size: 42px;
     margin-bottom: 20px;
-    background: linear-gradient(90deg, var(--dark-blue), var(--accent-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: #ffffff;
+    z-index: 1;
+    position: relative;
 }
 
-.coming-soon p {
-    font-size: 22px;
+.info p {
+    font-size: 18px;
     color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    z-index: 1;
+    position: relative;
+}
+
+.download-btn {
+    background: linear-gradient(45deg, #1E4B87, var(--accent-color));
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 18px;
+    padding: 14px 35px;
+    border-radius: 6px;
+    transition: all var(--transition-speed) ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 10px var(--glow-color);
+    z-index: 1;
+    position: relative;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 10px var(--glow-color); }
+    50% { box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-color); }
+    100% { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 10px var(--glow-color); }
+}
+
+.download-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--accent-color);
 }
 
 /* ФУТЕР */
@@ -562,8 +575,11 @@ footer {
     .screenshot-gallery {
         grid-template-columns: 1fr;
     }
-    .coming-soon h2 {
+    .info h2 {
         font-size: 34px;
+    }
+    .info p {
+        font-size: 16px;
     }
     .footer-content > div {
         flex-basis: 100%;
@@ -578,8 +594,11 @@ footer {
     .hero-content h2 {
         font-size: 24px;
     }
-    .hero-content p {
-        font-size: 16px;
+    .info h2 {
+        font-size: 28px;
+    }
+    .info p {
+        font-size: 14px;
     }
 }
 
